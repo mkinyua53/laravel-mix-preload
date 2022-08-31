@@ -1,9 +1,9 @@
 <?php
 
-namespace Spatie\MixPreload\Tests;
+namespace Mkinyua53\MixPreload\Tests;
 
 use PHPUnit\Framework\TestCase;
-use Spatie\MixPreload\RenderPreloadLinks;
+use Mkinyua53\MixPreload\RenderPreloadLinks;
 
 class RenderPreloadLinksTest extends TestCase
 {

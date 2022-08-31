@@ -1,10 +1,10 @@
 <?php
 
-namespace Spatie\MixPreload;
+namespace Mkinyua53\MixPreload;
 
+use Illuminate\Support\Str;
 use Illuminate\Support\Collection;
 use Illuminate\Support\HtmlString;
-use Illuminate\Support\Str;
 
 class RenderPreloadLinks
 {
@@ -32,8 +32,10 @@ class RenderPreloadLinks
 
     public function __invoke(): HtmlString
     {
+        $using = config('preloader.using', 'path');
+
         return $this->getManifestEntries()
-            ->mapSpread(function (string $path, string $name) {
+            ->mapSpread(function (string $path, string $name) use ($using) {
                 $rel = $this->getRelAttribute($name);
 
                 if (! $rel) {
@@ -45,8 +47,9 @@ class RenderPreloadLinks
                 if (! $as) {
                     return null;
                 }
+                $uri = $using == 'name' ? $name : $path;
 
-                return "<link rel=\"{$rel}\" href=\"{$path}\" as=\"{$as}\">";
+                return "<link rel=\"{$rel}\" href=\"{$uri}\" as=\"{$as}\">";
             })
             ->filter()
             ->pipe(function (Collection $links) {
@@ -73,6 +76,20 @@ class RenderPreloadLinks
             return 'prefetch';
         }
 
+        $morePreload = config('preloader.preload.include');
+        $excludePreload = config('preloader.preload.exclude');
+
+        if (Str::contains($name, $morePreload) && !Str::contains($name, $excludePreload)) {
+            return 'preload';
+        }
+
+        $morePrefetch = config('preloader.prefetch.include');
+        $excludePrefetch = config('preloader.prefetch.exclude');
+
+        if (Str::contains($name, $morePrefetch) && !Str::contains($name, $excludePrefetch)) {
+            return 'prefetch';
+        }
+
         return null;
     }
 
@@ -85,7 +102,7 @@ class RenderPreloadLinks
         if (Str::contains($path, '.css')) {
             return 'style';
         }
-        
+
         if (Str::contains($path, ['.woff', '.woff2', '.ttf', '.eot', '.svg', '.ttc'])) {
             return 'font';
         }

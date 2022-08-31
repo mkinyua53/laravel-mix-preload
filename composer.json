@@ -1,17 +1,17 @@
 {
-    "name": "spatie/laravel-mix-preload",
-    "description": "Add preload and prefetch links based your Mix manifest",
+    "name": "mkinyua53/laravel-mix-preload",
+    "description": "Add preload and prefetch links based your Mix manifest and additional config. Based on spatie/laravel-mix-preload",
     "keywords": [
-        "spatie",
+        "mkinyua53",
         "laravel-mix-preload"
     ],
-    "homepage": "https://github.com/spatie/laravel-mix-preload",
+    "homepage": "https://github.com/mkinyua53/laravel-mix-preload",
     "license": "MIT",
     "authors": [
         {
-            "name": "Sebastian De Deyne",
-            "email": "sebastian@spatie.be",
-            "homepage": "https://spatie.be",
+            "name": "Mwatha Kinyua",
+            "email": "mwatha.kinyua@hotmail.com",
+            "homepage": "https://twitter.com/MKinyua53",
             "role": "Developer"
         }
     ],
@@ -24,12 +24,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Spatie\\MixPreload\\": "src"
+            "Mkinyua53\\MixPreload\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Spatie\\MixPreload\\Tests\\": "tests"
+            "Mkinyua53\\MixPreload\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -42,7 +42,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Spatie\\MixPreload\\MixPreloadServiceProvider"
+                "Mkinyua53\\MixPreload\\MixPreloadServiceProvider"
             ]
         }
     }
