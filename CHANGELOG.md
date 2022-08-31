@@ -6,3 +6,6 @@ All notable changes to `laravel-mix-preload` will be documented in this file.
 
 - Forked from `spatie/laravel-mix-preload`
 - Added a config file to add more assets with no preload or prefetch in the file name
+
+## 0.2.0 - 2022-08-31
+  - Changed name to avoid conflict

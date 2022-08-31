@@ -1,5 +1,5 @@
 {
-    "name": "mkinyua53/laravel-mix-preload",
+    "name": "mkinyua53/laravel-mix-preloader",
     "description": "Add preload and prefetch links based your Mix manifest and additional config. Based on spatie/laravel-mix-preload",
     "keywords": [
         "mkinyua53",
